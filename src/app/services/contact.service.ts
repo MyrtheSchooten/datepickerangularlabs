@@ -20,7 +20,14 @@ export class ContactService {
     return this.http.get<Contact[]>(this.url);
   }
 
-  addContact(newContact: Contact) {
-    this.contacts.push(newContact);
+  addContact(c: Contact): void {
+    this.http.post<Contact[]>(this.url, c)
+      .subscribe(() => this.getContacts());
   }
+
+  deleteContact(c: Contact): void {
+    this.http.delete(`${this.url}/${c.id}`) // delete contact from server
+      .subscribe(() => this.getContacts()); // when deleted: getAll (refresh)
+  }
+
 }

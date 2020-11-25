@@ -1,0 +1,36 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #FF6EC7;
+  background-color: black;
+}
+
+li {
+  float: left;
+  border-right: 1px solid #FF6EC7;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a, li #today {
+  display: block;
+  color: #ffff00;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+li a:hover:not(.active) {
+  background-color: #FF6EC7;
+  color: #ffff00;
+}
+
+li .activeMenu {
+  color: #FF6EC7;;
+  background-color: #ffff00;
+}
