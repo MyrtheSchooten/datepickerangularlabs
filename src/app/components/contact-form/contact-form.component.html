@@ -1,0 +1,27 @@
+
+<h2> Add new contact</h2>
+
+<form (submit)="addContact()" [formGroup]="addContactForm" novalidate id="reactive-form">
+  <div>
+    <label for="rfm-firstname">First name:</label>
+    <input type="firstname" id="rfm-firstname" formControlName="firstname">
+    <span *ngIf="addContactForm.get('firstname').touched && addContactForm.get('firstname').invalid">*</span>
+    <span *ngIf="addContactForm.get('firstname').touched && addContactForm.get('firstname').errors?.required">Vul uw voornaam in aub</span>
+    <span *ngIf="addContactForm.get('firstname').touched && addContactForm.get('firstname').errors?.pattern">Alleen letters graag</span>
+  </div>
+  <div>
+    <label for="rfm-surname">Surname:</label>
+    <input type="surname" id="rfm-surname" formControlName="surname">
+    <span *ngIf="addContactForm.get('surname').touched && addContactForm.get('surname').invalid">*</span>
+    <span *ngIf="addContactForm.get('surname').touched && addContactForm.get('surname').errors?.required">Vul uw achternaam in aub</span>
+    <span *ngIf="addContactForm.get('surname').touched && addContactForm.get('surname').errors?.pattern">Alleen letters graag</span>
+  </div>
+  <div>
+    <label for="rfm-email">E-mail address:</label>
+    <input type="email" id="rfm-email" formControlName="email">
+    <span *ngIf="addContactForm.get('email').touched && addContactForm.get('email').invalid">*</span>
+    <span *ngIf="addContactForm.get('email').touched && addContactForm.get('email').errors?.required">Vul uw emailadres in aub</span>
+    <span *ngIf="addContactForm.get('email').touched && addContactForm.get('email').errors?.email">Een echt e-mailadres graag</span>
+  </div>
+  <button [disabled]="addContactForm.invalid">Add contact</button>
+</form>
